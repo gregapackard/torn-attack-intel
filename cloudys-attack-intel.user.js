@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cloudy's Attack Intel
 // @namespace    https://github.com/gregapackard/torn-attack-intel
-// @version      1.0.0
+// @version      1.0.1
 // @description  Live target intel on Torn attack pages: last action, online state, status, faction, and configurable activity qualification.
 // @author       CloudyMuffin440
 // @match        https://www.torn.com/*
@@ -18,7 +18,7 @@
 (() => {
   "use strict";
 
-  const VERSION = "1.0.0";
+  const VERSION = "1.0.1";
   const PDA_KEY = "###PDA-APIKEY###";
   const API = "https://api.torn.com/v2";
   const KEY_API = "cloudyAttackIntel.apiKey";
@@ -97,7 +97,7 @@
       const m = hash.match(new RegExp("(?:[?&#]|^)" + key + "=(\\d+)", "i"));
       if (m) candidates.unshift(m[1]);
     }
-    const id = candidates.find(x => /^\\d+$/.test(String(x || "")));
+    const id = candidates.find(x => /^\d+$/.test(String(x || "")));
     return id ? +id : null;
   }
 
